@@ -1,0 +1,42 @@
+/geometry/source geometry/UCNA_Detector_v1.tg
+
+# check physics processes
+#/process/list Electromagnetic
+#/process/list Optical
+
+/physics_lists/select ShieldingLEND
+/physics_lists/factory/addOptical
+
+
+/process/optical/verbose 0
+
+/run/initialize
+/geometry/test/run
+
+/analysis/setFileName data/ucna_track_test
+
+/gps/source/intensity 1
+/gps/particle e-
+/gps/energy 350 keV
+/gps/pos/type Plane
+/gps/pos/shape Circle
+/gps/pos/centre 0.0001 0.0001 -1.1 cm
+/gps/pos/radius 0.00001 mm
+/gps/direction 0 0 1
+
+/vis/open HepRepFile 
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 60 20
+/vis/viewer/set/style surface
+/vis/viewer/flush
+/vis/scene/add/trajectories
+/vis/scene/endOfEventAction accumulate
+
+/tracking/verbose 0
+/run/beamOn 1
+
+# create png file
+#/control/shell rm -f gears_*.pdf gearsOGL.png
+#/vis/ogl/set/exportFormat pdf
+#/vis/ogl/export gears
+#/control/shell convert gears_*.pdf -trim +repage gearsOGL.png

@@ -1,0 +1,88 @@
+/geometry/source geometry/UCNA_Detector_v1_1.tg
+
+# check physics processes
+#/process/list Electromagnetic
+#/process/list Optical
+
+/physics_lists/select ShieldingLEND
+/physics_lists/factory/addOptical
+
+
+/process/optical/verbose 0
+
+/run/initialize
+/geometry/test/run
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_0
+
+/gps/source/intensity 1
+/gps/particle e-
+/gps/energy 50 keV
+/gps/pos/type Plane
+/gps/pos/shape Circle
+/gps/pos/centre 0 0 -10.36 cm
+/gps/pos/radius 0.00001 mm
+/gps/direction 0 0 1
+
+#/vis/open HepRepFile 
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 60 20
+/vis/viewer/set/style surface
+/vis/viewer/flush
+/vis/scene/add/trajectories
+/vis/scene/endOfEventAction accumulate
+
+/tracking/verbose 0
+/random/setSeeds 5263214 7879340
+/run/beamOn 1500
+
+# create png file
+#/control/shell rm -f gears_*.pdf gearsOGL.png
+#/vis/ogl/set/exportFormat pdf
+#/vis/ogl/export gears
+#/control/shell convert gears_*.pdf -trim +repage gearsOGL.png
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_1
+/gps/pos/centre 1.019344 0.0317016 -10.36 cm
+/random/setSeeds 6786214 5671230
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_2
+/gps/pos/centre 2.038688 0.0634032 -10.36 cm
+/random/setSeeds 6799214 5671130
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_3
+/gps/pos/centre 3.058032 0.0951048 -10.36 cm
+/random/setSeeds 6709254 5671230
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_4
+/gps/pos/centre 4.077376 0.1268064 -10.36 cm
+/random/setSeeds 5623643 5908361
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_5
+/gps/pos/centre 5.09672 0.158508 -10.36 cm
+/random/setSeeds 9027265 5439278
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_6
+/gps/pos/centre 6.116064 0.1902096 -10.36 cm 
+/random/setSeeds 9027865 1278456
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_7
+/gps/pos/centre 7.135408 0.2219112 -10.36 cm
+/random/setSeeds 9026574 7052434
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos2_test_50_8
+/gps/pos/centre 8.154752 0.2536128 -10.36 cm
+/random/setSeeds 6452734 6574109
+/run/beamOn 1500
+
+/analysis/setFileName /media/Data_Storage_3/richard_UCNA+/pos_test_1200_9
+/gps/pos/centre 9.174096 0.28531439 -10.36 cm
+/random/setSeeds 8987624 1267439
+/run/beamOn 1500
